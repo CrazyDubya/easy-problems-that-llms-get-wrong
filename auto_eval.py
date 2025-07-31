@@ -1,9 +1,12 @@
 # %%
 from llm_service import message_parse, runner, litellm_service, custom_llm_service
 from utils import message_parse, model_clean
+from IPython.display import display
+
 try:
-    from IPython.display import display
-except ImportError:
+    # Test if the display function is available
+    _ = display
+except NameError:
     # Mock display function for non-Jupyter environments
     def display(obj):
         print(obj)
