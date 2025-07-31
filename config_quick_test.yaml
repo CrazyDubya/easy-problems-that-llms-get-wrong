@@ -1,0 +1,26 @@
+batch_size: 1
+benchmarks:
+- description: Quick test with first 5 questions
+  file_path: linguistic_benchmark.json
+  name: quick_test
+  question_type: open_ended
+evaluation:
+  auto_eval: true
+  bootstrap_samples: 100
+  evaluator_model: gpt-4o-mini
+  multiple_choice_scoring: false
+models:
+- max_tokens: 200
+  name: gpt-4o-mini
+  num_retries: 1
+  service: litellm
+  temperature: 0.0
+output:
+  answers_path: answers
+  base_path: ./quick_test_outputs
+  charts_path: charts
+  evaluations_path: evaluations
+  statistics_path: statistics
+  timestamp_folders: true
+parallel_execution: false
+verbose: true
