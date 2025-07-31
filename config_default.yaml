@@ -1,0 +1,35 @@
+batch_size: 2
+benchmarks:
+- description: Original benchmark with open-ended questions
+  file_path: linguistic_benchmark.json
+  name: linguistic_benchmark
+  question_type: open_ended
+- description: Multiple choice version of the benchmark
+  file_path: linguistic_benchmark_multi_choice.json
+  name: linguistic_benchmark_multiple_choice
+  question_type: multiple_choice
+evaluation:
+  auto_eval: true
+  bootstrap_samples: 1000
+  evaluator_model: gpt-4o
+  multiple_choice_scoring: true
+models:
+- max_tokens: 500
+  name: gpt-4o-mini
+  num_retries: 2
+  service: litellm
+  temperature: 0.0
+- max_tokens: 500
+  name: claude-3-5-sonnet-20240620
+  num_retries: 2
+  service: litellm
+  temperature: 0.0
+output:
+  answers_path: answers
+  base_path: ./test_outputs
+  charts_path: charts
+  evaluations_path: evaluations
+  statistics_path: statistics
+  timestamp_folders: true
+parallel_execution: false
+verbose: true

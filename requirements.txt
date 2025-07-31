@@ -7,3 +7,4 @@ seaborn
 matplotlib
 streamlit
 boto3
+pyyaml
