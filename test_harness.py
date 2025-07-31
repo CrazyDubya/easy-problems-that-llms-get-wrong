@@ -214,10 +214,10 @@ class TestHarness:
             
             if benchmark_config.question_type == "multiple_choice":
                 # Use multiple choice scoring
-                eval_path = self.output_dir / "evaluations" / benchmark_name
+                eval_path = str(self.output_dir / "evaluations" / benchmark_name)
                 evaluated_results = score_multiple_choice_answers(
                     {model: df for model, df in model_answers.items() if benchmark_name in model},
-                    str(eval_path)
+                    eval_path
                 )
                 all_evaluated_results.update(evaluated_results)
                 
