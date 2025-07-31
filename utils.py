@@ -1,7 +1,10 @@
 # %%
 from llm_service import message_parse, runner, litellm_service, custom_llm_service
+from IPython.display import display
+
 try:
-    from IPython.display import display
+    # Check if IPython.display is available
+    _ = display
 except ImportError:
     # Mock display function for non-Jupyter environments
     def display(obj):
