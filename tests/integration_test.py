@@ -13,7 +13,7 @@ def run_command(cmd, cwd=None):
     """Run a command and return success status and output"""
     try:
         result = subprocess.run(
-            cmd, shell=True, capture_output=True, text=True, cwd=cwd
+            cmd, capture_output=True, text=True, cwd=cwd
         )
         return result.returncode == 0, result.stdout, result.stderr
     except Exception as e:
